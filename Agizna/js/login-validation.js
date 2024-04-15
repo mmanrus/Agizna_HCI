@@ -5,7 +5,7 @@ function login() {
 
     // Check if entered credentials match admin credentials
     if (enteredUsername === 'admin' && enteredPassword === 'admin') {
-        window.location.href = "/admin/pages/index.html";
+        window.location.href = "/Agizna/admin/pages/index.html";
         alert('Admin Login Successful');
         return;
     }
