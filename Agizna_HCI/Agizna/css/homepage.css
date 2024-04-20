@@ -1,0 +1,65 @@
+
+
+img {
+    width: 300px;
+    border-radius: 10px;
+}
+
+.custom-container {
+    display: flex;
+    justify-content: center;
+}
+
+.custom-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjust the gap between columns as needed */
+    max-width: 1200px;
+    justify-content: center; /* Set maximum width of the container */
+}
+
+.custom-col {
+    flex: 0 0 calc(33.333% - 10px); /* Adjust the column width as needed */
+    max-width: calc(30.333% - 10px); /* Adjust the column width as needed */
+    position: relative;
+}
+
+.custom-col img {
+    width: 100%;
+    height: 250px;
+    display: block;
+}
+
+.custom-col .spandex {
+    position: absolute; /* Position the span element absolutely */
+    top: 15px; /* 15px spacing from the top */
+    left: 15px; /* 15px spacing from the left */
+    background-color: white; /* White background */
+    padding: 5px; /* Add padding */
+    border-radius: 20px; /* 20px border radius */
+}
+
+.custom-txt p{
+    margin-top: 10px;
+    line-height: 2.3rem;
+    font-size: 13px;
+    padding-left: 2px;
+}
+.custom-txt p:not(:first-child):not(:last-child) {
+    color: rgb(112, 114, 114);
+}
+.custom-txt p:first-child, p:last-child {
+    font-size: 15px;
+    font-weight: 1px;
+    color: #000;
+}
+.custom-txt span {
+    color: rgb(112, 114, 114);
+}
+a.custom-col {
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit text color from parent */
+
+}
