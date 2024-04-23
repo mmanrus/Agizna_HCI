@@ -154,20 +154,20 @@ form a {
 }
 
 .border {
-    border: 1px solid #ced4da; /* Adjust the color as needed */
+    border: 1px solid #ced4da; 
 }
 
 .form-controls {
     display: block;
-    width: calc(100% - 50px); /* Adjust the value as needed */
+    width: calc(100% - 50px); 
     padding: .75rem 1.5rem;
     font-size: 1.25rem;
     line-height: 1.5;
-    color: #495057; /* Adjust the color as needed */
+    color: #495057; 
     background-color: #fff;
     background-clip: padding-box;
     border-radius: 10px;
-    border: 1px solid #ced4da; /* Adjust the color as needed */
+    border: 1px solid #ced4da;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
@@ -198,14 +198,14 @@ form a {
 
 .bt-d {
     color: #fff;
-    background-color: #343a40; /* Adjust the color as needed */
-    border-color: #343a40; /* Adjust the color as needed */
+    background-color: #343a40;
+    border-color: #343a40;
 }
 
 .bt-l {
-    color: #212529; /* Adjust the color as needed */
-    background-color: #f8f9fa; /* Adjust the color as needed */
-    border-color: #f8f9fa; /* Adjust the color as needed */
+    color: #212529; 
+    background-color: #f8f9fa; 
+    border-color: #f8f9fa; 
 }
 
 .fw-semibold {
