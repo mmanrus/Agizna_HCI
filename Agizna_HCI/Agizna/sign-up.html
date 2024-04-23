@@ -2,58 +2,42 @@
 <html lang="en">
     <title>Sign Up</title>
     <head lang="en">
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css">
+
         <script defer src="js/bootstrap.bundle.min.js"></script>
         <script defer src="js/reg-validation.js"></script>
     </head>
     <body>
-        <div class="d-flex justify-content-evenly">
+        <div class="containers">
             <div>
-                <div class="logo">
-                    <!--Log In text Here Soon-->
-                </div>
-                <div class="" id="logo-display">
-                    <img class="w-75"src="images/output-onlinepngtools.png" alt="big brand logo">
+                <div class="logo-container" id="logo-display">
+                    <img class="logo-img" src="images/output-onlinepngtools.png" alt="big brand logo">
                 </div>
             </div>
-            <div class="container bg-secondary-subtle mt-5 p-3 pt-4 login-container mx-5">
-                <form action="#" class="needs-validation" novalidate>
-                    <div class="my-4 position-relative">
-                        <input type="text" class="border p-3 fs-5 form-control" id="register-username" placeholder="Enter Username" required>
-                        <div class="invalid-tooltip">
-                            Please choose a username.
-                        </div>
+            <div class="sign-containers">
+                <form action="#" novalidate>
+                    <div class="my-4">
+                        <input type="text" class="form-controls" id="register-username" placeholder="Enter Username" required>
                     </div>
-                    <div class="my-4 position-relative">
-                        <input type="email" class="border form-control p-3 fs-5" id="register-email" placeholder="Enter Email" required>
-                        <div class="invalid-tooltip">
-                            Please enter a valid Email.
-                        </div>
+                    <div class="my-4">
+                        <input type="email" class="form-controls" id="register-email" placeholder="Enter Email" required>
                     </div>
-                    
-                    <div class="my-4 position-relative">
-                        <input type="password" class="border form-control p-3 fs-5" id="register-password" placeholder="Password" required>
-                        <div class="invalid-tooltip">
-                            Please enter a password.
-                        </div>
+                    <div class="my-4">
+                        <input type="password" class="form-controls" id="register-password" placeholder="Password" required>
                     </div>
-                    
-                    <div class="my-4 position-relative">
-                        <input type="password" class="border form-control p-3 fs-5" id="confirm-password" placeholder="Confirm Password" required>
-                        <div class="invalid-tooltip">
-                            Password do not match.
-                        </div>
+                    <div class="my-4">
+                        <input type="password" class="form-controls" id="confirm-password" placeholder="Confirm Password" required>
                     </div>
-                    <div class="my-4 position-relative">
-                        <button class="border btn btn-dark p-3 fs-5 fw-semibold" type="submit" id="register">SIGN UP</button>
+                    <div class="my-4">
+                        <button class="bt bt-d b" type="submit" id="register">SIGN UP</button>
                     </div>
                     <div class="mt-2">
                         <p id="h-rule"><span>ALREADY HAVE AN ACCOUNT?</span></p>
                     </div>
                     <div class="my-4">
-                        <a href="login.html" class="btn btn-light p-3 fs-5 fw-semibold link">LOG IN</a>
+                        <a href="login.html" class="bt bt-l a">LOG IN</a>
                     </div>
                     <div class="my-4 txt">
                         <p class="fs-6">I agree to the <a href="#"><b>Terms and Condition</b></a> and <a href="#"><b>Policies of Borcel & Privacy Policy</b></a></p>

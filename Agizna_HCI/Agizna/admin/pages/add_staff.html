@@ -7,9 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agizna Admin Dashboard</title>
     <!-- ======= Styles ====== -->
-    
-    <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -113,37 +112,24 @@
             </div>
 
             <!-- ======================= Add Staff ================== -->
-            <div class="d-flex center position-relative">
-                <div class="container bg-secondary-subtle mt-5 p-3 pt-4 login-container m">
-                    <form action="#" class="needs-validation" novalidate>
-                        <div class="my-4 position-relative">
-                            <input type="text" class="border p-3 fs-5 form-control" id="register-username" placeholder="Enter Staff's Username" required>
-                            <div class="invalid-tooltip">
-                                Please choose a username.
-                            </div>
+            <div class="containersReg">
+                <div class="reg-containers">
+                    <form action="#" class="needs-validation my-4" novalidate>
+                        <div class="my-4">
+                            <input type="text" class="border form-controls p-3" id="register-username" placeholder="Enter Staff's Username" required>
+                           
                         </div>
-                        <div class="my-4 position-relative">
-                            <input type="email" class="border form-control p-3 fs-5" id="register-email" placeholder="Enter Staff's  Email" required>
-                            <div class="invalid-tooltip">
-                                Please enter a valid Email.
-                            </div>
+                        <div class="my-4">
+                            <input type="email" class="form-controls p-3" id="register-email" placeholder="Enter Staff's  Email" required>
                         </div>
-                        
-                        <div class="my-4 position-relative">
-                            <input type="password" class="border form-control p-3 fs-5" id="register-password" placeholder="Password" required>
-                            <div class="invalid-tooltip">
-                                Please enter a password.
-                            </div>
+                        <div class="my-4">
+                            <input type="password" class="form-controls p-3" id="register-password" placeholder="Password" required>
                         </div>
-                        
-                        <div class="my-4 position-relative">
-                            <input type="password" class="border form-control p-3 fs-5" id="confirm-password" placeholder="Confirm Password" required>
-                            <div class="invalid-tooltip">
-                                Password do not match.
-                            </div>
+                        <div class="my-4">
+                            <input type="password" class="border form-controls p-3" id="confirm-password" placeholder="Confirm Password" required>
                         </div>
-                        <div class="my-4 position-relative">
-                            <button class="border btn btn-dark p-3 fs-5 fw-semibold  gap-2 col-6 mx-auto" type="submit" id="register">Add Staff</button>
+                        <div class="">
+                            <button class="bt bt-d fw-semibold bt-st" type="submit" id="register">Add Staff</button>
                         </div>
                         
                     </form>

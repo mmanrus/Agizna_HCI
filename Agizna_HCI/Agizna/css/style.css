@@ -4,27 +4,85 @@ body
     font-family:  'Open Sans'Arial, Helvetica, sans-serif;
 }
 
+
+html, body {
+    height: 100%;
+}
+
+.containers {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    overflow: hidden;
+}
 /* Logo */
 
 #logo-display {
     margin-top: 10px;
+    width: 75%;
+}
+/* Logo Container */
+.logo-container {
+    height: 75%;
 }
 
-/* Logo */
-.login-container 
-{
-    width: 40%
+/* Logo Image */
+.logo-img {
+    height: 100%;
+    position: relative; 
+    left: 50%;
 }
+
+/* Login */
+.login-containers 
+{
+    width: 30%;
+    height: 55%;
+    background-color: #e4e3e3;
+    margin-top: 5rem;
+    padding: 1.5rem;
+    padding-top: 1.8rem;
+    margin-left: 5rem;
+    border-radius: 10px;
+}
+.containersReg
+{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    overflow: hidden;
+
+}
+.reg-containers
+{
+    width: 50%;
+    height: 25%;
+    background-color: #e4e3e3;
+    margin-top: 5rem;
+    padding: 1.5rem;
+    padding-top: 1.8rem;
+    margin-left: 5rem;
+    border-radius: 10px;
+}
+.sign-containers
+{
+    width: 30%;
+    height: 70%;
+    background-color: #e4e3e3;
+    margin-top: 5rem;
+    padding: 1.5rem;
+    padding-top: 1.8rem;
+    margin-left: 5rem;
+    border-radius: 10px;
+}
+
+
 form
 {
     padding: 4.5%;
     letter-spacing: .15rem;
 }
 
-form > div > button, .link
-{
-    width: 100%;
-}
 
 
 #h-rule 
@@ -69,4 +127,107 @@ form a {
     cursor: pointer;
     color: #000;
     text-decoration: none;
+}
+
+#logo-display {
+    width: 60%;
+}
+
+
+.my-4 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.border {
+    border: 1px solid #ced4da;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.my-4 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.border {
+    border: 1px solid #ced4da; /* Adjust the color as needed */
+}
+
+.form-controls {
+    display: block;
+    width: calc(100% - 50px); /* Adjust the value as needed */
+    padding: .75rem 1.5rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    color: #495057; /* Adjust the color as needed */
+    background-color: #fff;
+    background-clip: padding-box;
+    border-radius: 10px;
+    border: 1px solid #ced4da; /* Adjust the color as needed */
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+
+.bt {
+    display: inline-block;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: .5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: .3rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.bt-st {
+    position: relative;
+    left: -24px;
+    width: 93%;
+}
+
+.bt-d {
+    color: #fff;
+    background-color: #343a40; /* Adjust the color as needed */
+    border-color: #343a40; /* Adjust the color as needed */
+}
+
+.bt-l {
+    color: #212529; /* Adjust the color as needed */
+    background-color: #f8f9fa; /* Adjust the color as needed */
+    border-color: #f8f9fa; /* Adjust the color as needed */
+}
+
+.fw-semibold {
+    font-weight: 600;
+}
+
+.a {
+    text-decoration: none;
+    width: calc(100% - 40px);
+}
+.b {
+    width: 100%;
+}
+
+.fs-6 {
+    font-size: 1rem;
+}
+
+.txt {
+    text-align: center;
+}
+
+#h-rule span {
+    font-weight: bold;
 }
