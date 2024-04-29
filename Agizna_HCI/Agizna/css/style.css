@@ -2,6 +2,7 @@
 body 
 {
     font-family:  'Open Sans'Arial, Helvetica, sans-serif;
+    margin: 0;
 }
 
 
@@ -13,7 +14,7 @@ html, body {
     display: flex;
     justify-content: space-between;
     height: 100%;
-    overflow: hidden;
+
 }
 /* Logo */
 
@@ -50,7 +51,6 @@ html, body {
     display: flex;
     justify-content: center;
     height: 100%;
-    overflow: hidden;
 
 }
 .reg-containers
@@ -67,8 +67,8 @@ html, body {
 .sign-containers
 {
     width: 30%;
-    height: 70%;
-    background-color: #e4e3e3;
+    height: 100%;
+    background-color: #110c0c;
     margin-top: 5rem;
     padding: 1.5rem;
     padding-top: 1.8rem;
@@ -79,7 +79,7 @@ html, body {
 
 form
 {
-    padding: 4.5%;
+    padding: 3.5%;
     letter-spacing: .15rem;
 }
 
