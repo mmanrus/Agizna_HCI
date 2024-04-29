@@ -29,7 +29,7 @@
         <a href="#galllery">Gallery</a>
         <a href="#review">Review</a>
         <a href="#faq">Faq</a>
-        <a href="login.html" class="btn">Username</a>
+        <a href="login.php" class="btn">Username</a>
     </nav>
 
     <div class="menu-btn" class="fas fa-bars"></div>

@@ -23,7 +23,7 @@
         <nav class="navbar">
             <a href="#home">Stays</a>
             <a href="#about">Experience</a>
-            <a href="login.html" class="btn">Book now</a>
+            <a href="login.php" class="btn">Book now</a>
         </nav>
 
         <div class="menu-btn" class="fas fa-bars"></div>
@@ -43,28 +43,28 @@
             <div class="swiper-slide slide" style="background: url(images/slide1.jpg) no-repeat;">
                 <div class="content">
                     <h3>Hospitality is when someone feels at home</h3>
-                    <a href="login.html" class="btn">Visit our offer</a>
+                    <a href="login.php" class="btn">Visit our offer</a>
                 </div>
             </div>
 
             <div class="swiper-slide slide" style="background: url(images/slide2.jpg) no-repeat;">
                 <div class="content">
                     <h3>Hospitality is when someone feels at home</h3>
-                    <a href="login.html" class="btn">Visit our offer</a>
+                    <a href="login.php" class="btn">Visit our offer</a>
                 </div>
             </div>
 
             <div class="swiper-slide slide" style="background: url(images/slide3.jpg) no-repeat;">
                 <div class="content">
                     <h3>Hospitality is when someone feels at home</h3>
-                    <a href="login.html" class="btn">Visit our offer</a>
+                    <a href="login.php" class="btn">Visit our offer</a>
                 </div>
             </div>
 
             <div class="swiper-slide slide" style="background: url(images/slide6.jpg) no-repeat;">
                 <div class="content">
                     <h3>Hospitality is when someone feels at home</h3>
-                    <a href="login.html" class="btn">Visit our offer</a>
+                    <a href="login.php" class="btn">Visit our offer</a>
                 </div>
             </div>
 
