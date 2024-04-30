@@ -38,13 +38,14 @@ html, body {
 .login-containers 
 {
     width: 30%;
-    height: 55%;
+    height: 70%;
     background-color: #e4e3e3;
     margin-top: 5rem;
     padding: 1.5rem;
     padding-top: 1.8rem;
     margin-left: 5rem;
     border-radius: 10px;
+    margin-left: 5rem;
 }
 .containersReg
 {

@@ -1,3 +1,16 @@
+<?php
+session_start(); // Start session
+
+// Check if user is logged in
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php"); // Redirect to login page if not logged in
+    exit;
+}
+
+// Retrieve username from session
+$username = $_SESSION["username"];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +42,8 @@
         <a href="#galllery">Gallery</a>
         <a href="#review">Review</a>
         <a href="#faq">Faq</a>
-        <a href="login.php" class="btn">Username</a>
+        <a href="#"><?php echo isset($_SESSION["username"]) ? $_SESSION["username"] : "Guest"; ?></a>
+        <a href="logout.php"  class="btn">Logout</a>
     </nav>
 
     <div class="menu-btn" class="fas fa-bars"></div>
