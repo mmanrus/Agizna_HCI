@@ -9,8 +9,8 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
-    <link rel="stylesheet" href="css/homestyle.css">
-    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="css/homestyle.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/homepage.css?v=<?php echo time(); ?>">
 
 </head>
 <body>
