@@ -11,7 +11,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 // Include database connection
 include("dbconnection.php");
 
-//initialize with empty values
+//~initialize with empty values
 $username = $password = "";
 $username_err = $password_err = "";
 
