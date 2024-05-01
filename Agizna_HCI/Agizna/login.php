@@ -54,7 +54,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     // Bind result variables
                     mysqli_stmt_bind_result($stmt, $id, $username, $email, $hashed_password);
                     if(mysqli_stmt_fetch($stmt)){
-                        if(password_verify($password, $hashed_password)){
+                        if (password_verify($password, $hashed_password) && $username == "admin"){
+                            // Password is correct, start a new session
+                            session_start();
+                            
+                            // Store data in session variables
+                            $_SESSION["loggedin"] = true;
+                            $_SESSION["id"] = $id;
+                            $_SESSION["username"] = $username; // Set the 'user' column value to the session variable
+                            $_SESSION["email"] = $email;                            
+                            
+                            // Redirect user to dashboard page
+                            header("location: admin/pages/admin.php");
+                        }
+                        elseif(password_verify($password, $hashed_password)){
                             // Password is correct, start a new session
                             session_start();
                             
@@ -66,7 +79,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             
                             // Redirect user to dashboard page
                             header("location: home.php");
-                        } else{
+                        } 
+                        else{
                             // Password is not valid, display a generic error message
                             $password_err = "Invalid username/email or password.";
                         }

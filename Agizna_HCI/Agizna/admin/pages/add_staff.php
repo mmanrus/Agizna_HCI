@@ -25,14 +25,13 @@
                 </li>
 
                 <li>
-                    <a href="index.html">
+                    <a href="admin.php">
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
                         <span class="title">Dashboard</span>
                     </a>
                 </li>
-                
 
                 <li>
                     <a href="#">
@@ -80,7 +79,7 @@
                 </li>
                 -->
                 <li>
-                    <a href="../../landing.html">
+                    <a href="../../logout.html">
                         <span class="icon">
                             <ion-icon name="log-out-outline"></ion-icon>
                         </span>

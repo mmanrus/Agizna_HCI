@@ -34,7 +34,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="add_staff.html">
+                    <a href="add_staff.php">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -42,7 +42,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="../../landing.html">
+                    <a href="../../logout.php">
                         <span class="icon">
                             <ion-icon name="log-out-outline"></ion-icon>
                         </span>
