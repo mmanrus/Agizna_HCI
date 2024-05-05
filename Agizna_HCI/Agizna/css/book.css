@@ -1,0 +1,232 @@
+@import url(csvar.css);
+
+body 
+{
+    font-family:  'Open Sans'Arial, Helvetica, sans-serif;
+    margin: 0;
+    height: 100vh;
+    overflow-y: hidden;
+    font-size: var(--bs-body-font-size);
+    font-weight: var(--bs-body-font-weight);
+    line-height: var(--bs-body-line-height);
+    color: var(--bs-body-color);
+    text-align: var(--bs-body-text-align);
+    /* background-color: var(--bs-body-bg); */
+
+}
+
+
+html, body {
+    height: 100%;
+}
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+/*   -------CONTAINER------   */
+.position-relative {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    background-color: var(--bs-dark);
+}
+/*   -------FORM_CONTAINER------   */
+.form-container {
+    height: 100%;
+    width: 40%;
+    position: absolute;
+    background-color: var(--bs-red);
+    padding: 1.5rem;
+}
+.flex-column {
+    flex-direction: column !important;
+}
+.d-flex {
+    display: flex !important;
+}
+
+.justify-content-between {
+    justify-content: space-between !important;
+}
+
+.mx-auto {
+    margin-left: auto!important; 
+    margin-right: auto!important; 
+}
+
+.twoway {
+    width: 60% !important;
+}
+.form-floating {
+    position: relative;
+    margin-bottom: 1rem !important;
+}
+
+.w_100 {
+    width:100%;
+}
+.room {
+    width:50%;
+    margin-right: auto;
+    margin-left: auto;  
+}
+
+/* -------Forms----------  */
+
+.position-relative .form-container form {
+    position: absolute;
+    top: 63px;
+    left: 50px;
+    width: 80%;
+}
+
+.position-relative .form-container form div p {
+    margin: 10px 0;
+}
+
+.position-relative .form-container form{
+    margin: 10px 0;
+    position: relative;
+}
+
+.position-relative .form-container form div div {
+    margin: 10px 0;
+}
+
+.position-relative .form-container form div {
+    padding: 0 5px;
+}
+
+
+.position-relative > .form-container form > div:not(:nth-child(2)){
+    background-color: var(--bs-white-tp);
+    border-radius: 25px;
+    padding: 10px
+}
+
+.form-floating>.form-control, .form-floating>.form-control-plaintext, .form-floating>.form-select {
+
+    min-height: calc(3.5rem + calc(var(--bs-border-width)* 2));
+    line-height: 1.25;
+}
+
+/*---- FORM INPUT ---------*/
+input[type=text], input[type=date], input[type=number] {
+    font-size: var(--input-fs-normal);
+}
+
+
+.form-select {
+    --bs-form-select-bg-img: url(../images/icons/dropdown.svg);
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding: .375rem 2.25rem .375rem .75rem;
+    font-size: var(--input-fs-normal);
+    font-weight: var(--input-fw-normal);
+    /* line-height: 1.5; */
+    color: var(--bs-body-color);
+    /* -webkit-appearance: none; */
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    background-image: var(--bs-form-select-bg-img), var(--bs-form-select-bg-icon, none);
+    background-repeat: no-repeat;
+    background-position: right .75rem center;
+    background-size: 16px 12px;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+/* !Formi Input label floating */
+
+label {
+    display: inline-block;
+}
+
+.input-group {
+    position: relative;
+    margin: 20px 0;
+}
+
+.input-group label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #fff;
+    padding: 0 5px;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-group input {
+    height: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 0 10px;
+    background: transparent;
+    border: 1.2px solid #fff;
+    outline: none;
+    border-radius: 5px;
+}
+
+.input-group input:focus~label,
+.input-group input:valid~label,
+.input-group select:focus~label,
+.input-group select:valid~label {
+    top: 0;
+    font-size: 12px;
+    background: var(--bs-red);
+}
+input[type=date]:required:invalid::-webkit-datetime-edit {
+    color: transparent;
+}
+input[type=date]:focus::-webkit-datetime-edit {
+    color: black !important;
+}
+.transparent {
+    background-color: transparent!important;
+}
+
+.agizna-btn {
+    display: inline-block;
+    padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
+    font-family: var(--bs-btn-font-family);
+    font-size: var(--bs-btn-font-size);
+    font-weight: var(--bs-btn-font-weight);
+    line-height: var(--bs-btn-line-height);
+    color: var(--bs-white);
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+
+    border: var(--bs-btn-border-width) solid var(--bs-btn-border-color);
+    border-radius: var(--bs-btn-border-radius);
+    background-color: var(--bs-btn-agizna);
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    width: 100%;
+}
+
+.fs-3 {
+    font-size: 1.75rem !important;
+}

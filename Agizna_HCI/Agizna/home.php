@@ -9,6 +9,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 // Retrieve username from session
 $username = $_SESSION["username"];
+include("nav.php")
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +30,7 @@ $username = $_SESSION["username"];
 <body>
 
 
-<!--Header-->
+<!--Header
 
 <header class="header">
 
@@ -49,7 +50,7 @@ $username = $_SESSION["username"];
     <div class="menu-btn" class="fas fa-bars"></div>
 
 </header>
-
+-->
 <!--availability-->
 <section class="availability" style="margin-top: 5%">
 
@@ -112,7 +113,7 @@ $username = $_SESSION["username"];
     <div class="custom-row">
 
         <div class="custom-col">
-            <a>
+            <a href="book.php">
                 <img src="images/stickers/Coron.jpg" alt="Coron, Palawan, Philippines">
                 <span  class="spandex">Guest Favorite</span>
                 <div class="custom-txt">
@@ -124,7 +125,7 @@ $username = $_SESSION["username"];
         </div>
      
         <div class="custom-col">
-            <a href="#">
+            <a href="book.php">
                 <img src="images/stickers/El-Nido_-Philippines.jpg" alt="El Nido, Philippines">
                 <span class="spandex">Guest Favorite</span>
                 <div class="custom-txt">
@@ -136,7 +137,7 @@ $username = $_SESSION["username"];
         </div>
 
         <div class="custom-col">
-            <a href="#">
+            <a href="book.php">
                 <img src="images/stickers/Rizal.jpg" alt="Rizal, Philippines">
                 <span class="spandex">Guest Favorite</span>
                 <div class="custom-txt">
@@ -149,7 +150,7 @@ $username = $_SESSION["username"];
 
 
         <div class="custom-col">
-            <a href="#">
+            <a href="book.php">
                 <img src="images/stickers/Samboan.jpg" alt="Samboan, Philippines">
                 <span  class="spandex">Guest Favorite</span>
                 <div class="custom-txt">
@@ -161,7 +162,7 @@ $username = $_SESSION["username"];
         </div>
 
         <div class="custom-col">
-            <a href="#">
+            <a href="book.php">
             <img src="images/stickers/General.jpg" alt="General Luna, Philippines">
             <span class="spandex">Guest Favorite</span>
             <div class="custom-txt">

@@ -8,8 +8,9 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     exit;
 }
 
-// Include database connection
+// Include db connection
 include("dbconnection.php");
+
 
 //~initialize with empty values
 $username = $password = "";
@@ -76,17 +77,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username; // Set the 'user' column value to the session variable
                             $_SESSION["email"] = $email;                            
-                            
-                            // Redirect user to dashboard page
+                           
+                            //Redirect user
                             header("location: home.php");
                         } 
                         else{
-                            // Password is not valid, display a generic error message
+                            // iF Password not valid, display an error message
                             $password_err = "Invalid username/email or password.";
                         }
                     }
                 } else{
-                    // Username/email doesn't exist, display a generic error message
+                    // If Username/email doesn't exist, display an error message
                     $username_err = "Invalid username/email or password.";
                 }
             } else{
