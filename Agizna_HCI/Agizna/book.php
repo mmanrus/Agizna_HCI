@@ -41,18 +41,18 @@
                         <label for="">Location</label>
                     </div>
                     <div class="d-flex justify-content-between">
-                        <div class="input-group mb-3 w-50">
+                        <div class="input-group mb-3 w_50">
                             <input type="date" class="w_100" required>
                             <label for="" id="date">Check in</label>
                         </div>
-                        <div class="input-group mb-3 w-50">
+                        <div class="input-group mb-3 w_50">
                             <input type="date" class="w_100" required>
                             <label for="" id="date">Check Out</label>
                         </div>
                     </div>
 
                     <div class="d-flex justify-content-between">
-                        <div class="input-group mb-3 w-50">
+                        <div class="input-group mb-3 w_50">
                             <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
                                 <option selected value="1">1</option>
                                 <option value="2">2</option>
@@ -77,9 +77,10 @@
                             </select>
                             <label for="" >Adults</label>
                         </div>
-                        <div class="input-group mb-3 w-50">
+                        <div class="input-group mb-3 w_50">
                             <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                                <option selected value="1">1</option>
+                                <option selected value="0">0</option>
+                                <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
@@ -123,11 +124,11 @@
                     </div>
 
                     <div class="d-flex justify-content-between">
-                        <div class="input-group mb-3 w-50">
+                        <div class="input-group mb-3 w_50">
                             <input type="text" class="w_100" id="floatingInput">
                             <label for="floatingInput">Country</label>
                         </div>
-                        <div class="input-group mb-3 w-50">
+                        <div class="input-group mb-3 w_50">
                             <input type="text" class="w_100" id="floatingInput">
                             <label for="floatingInput">Region</label>
                         </div>

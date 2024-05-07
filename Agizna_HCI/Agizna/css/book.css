@@ -80,7 +80,11 @@ div {
 }
 
 .w_100 {
-    width:100%;
+    width: 100% !important;;
+}
+
+.w_50 {
+    width: 50% !important;
 }
 .room {
     width:50%;
