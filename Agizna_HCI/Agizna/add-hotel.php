@@ -1,7 +1,16 @@
 <?php
 include("dbconnection.php");
 
-include("nav.php");
+session_start();
+
+if(!isset($_SESSION["role"]) && $_SESSION["role"] !== "staff"){
+    echo "<script>alert('You are not allowed here')</script>";
+    header("location: home.php");
+    exit;
+}
+
+$username = $_SESSION["username"];
+
 include("header.php");
 
 $hotelName_err = '';
@@ -119,10 +128,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="css/add-hotel.css?v=<?php echo time(); ?>">
 </head>
 <body style="background-color: #000;">
-    
-</body>
-</html>
-<body>
+<?php 
+    include("nav.php");
+?>
 
 <form action="add-hotel.php" method="POST"  enctype="multipart/form-data" style="position: relative; top:20%;">
     <div class="input-group">

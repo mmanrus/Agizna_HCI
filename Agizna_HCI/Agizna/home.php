@@ -9,7 +9,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 }
 
 $username = $_SESSION["username"];
-include("nav.php");
+
 include("header.php");
 
 $query = "SELECT * FROM hotels";
@@ -21,7 +21,13 @@ $result_image = mysqli_query($conn, $query_image);
 <body>
     <!-- Your HTML content here -->
 
-    <?php echo "<a href='add-hotel.php'>Add hotels</a>"; ?>
+    <?php 
+    // Display "Add hotels" link only for staff members
+    include("nav.php");
+    if ($_SESSION["role"] === "staff") {
+        echo "<a href='add-hotel.php'>Add hotels</a>";
+    }
+    ?>
 
     <div class="menu-btn" class="fas fa-bars"></div>
 

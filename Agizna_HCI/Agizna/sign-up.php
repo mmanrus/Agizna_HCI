@@ -5,39 +5,51 @@ $email_err = '';
 $password_err = '';
 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") 
+{
     $username = $_POST["username"];
     $email = $_POST["email"];
     $password = $_POST["password"];
     $con_password = $_POST["con_password"]; 
 
     // Validate username
-    if (empty($username)) {
+    if (empty($username)) 
+    {
         $username_err = "Username is empty please enter field";
-    } elseif (!preg_match('/^[a-zA-Z0-9_]+$/', $username)) {
+    } 
+    elseif (!preg_match('/^[a-zA-Z0-9_]+$/', $username)) 
+    {
         $username_err = "Username can only contain letters, numbers, and underscores.";
     }
 
     // Validate email
-    if (empty($email)) {
+    if (empty($email)) 
+    {
         $email_err = "Please enter an email address";
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    } 
+    elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) 
+    {
         $email_err = "Invalid email format";
     }
 
     // Validate password
-    if (empty($password)) {
+    if (empty($password)) 
+    {
         $password_err = "Please enter a password";
-    } elseif ($password !== $con_password) {
+    } 
+    elseif ($password !== $con_password) 
+    {
         $password_err = "Passwords do not match";
     }
 
-    if (empty($username_err) && empty($email_err) && empty($password_err)) {
+    if (empty($username_err) && empty($email_err) && empty($password_err)) 
+    {
         // Hash the password
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
         // Check connection
-        if (!$conn) {
+        if (!$conn) 
+        {
             die("Connection failed: " . mysqli_connect_error());
         }
 
@@ -46,7 +58,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Prepare statement
         $stmt = mysqli_prepare($conn, $sql);
-        if ($stmt) {
+        if ($stmt) 
+        {
             // Bind parameters
             mysqli_stmt_bind_param($stmt, "sss", $username, $email, $hashed_password);
 
@@ -58,7 +71,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             echo "<script>alert('{$username} registered successfully.');</script>";
             header("Location: login.php");
-        } else {
+        } 
+        else 
+        {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
 

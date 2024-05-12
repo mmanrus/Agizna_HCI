@@ -11,7 +11,6 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 // Include db connection
 include("dbconnection.php");
 
-
 //~initialize with empty values
 $username = $password = "";
 $username_err = $password_err = "";
@@ -34,11 +33,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     // Validate credentials
-    if(empty($username_err) && empty($password_err)){
-        // Prepare a select statement
+    if(empty($username_err) && empty($password_err))
+    {
+        // Prepare a select statement for regular users
         $sql = "SELECT id, user, email, password FROM users WHERE user = ? OR email = ?";
         
-        if($stmt = mysqli_prepare($conn, $sql)){
+        if($stmt = mysqli_prepare($conn, $sql))
+        {
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_username);
             
@@ -46,16 +47,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_username = $username;
             
             // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
+            if(mysqli_stmt_execute($stmt))
+            {
                 // Store result
                 mysqli_stmt_store_result($stmt);
                 
                 // Check if username/email exists, if yes then verify password
-                if(mysqli_stmt_num_rows($stmt) == 1){                    
+                if(mysqli_stmt_num_rows($stmt) == 1)
+                {                    
                     // Bind result variables
                     mysqli_stmt_bind_result($stmt, $id, $username, $email, $hashed_password);
-                    if(mysqli_stmt_fetch($stmt)){
-                        if (password_verify($password, $hashed_password) && $username == "admin"){
+                    if(mysqli_stmt_fetch($stmt))
+                    {
+                        if (password_verify($password, $hashed_password) && $username == "admin")
+                        {
                             // Password is correct, start a new session
                             session_start();
                             
@@ -63,12 +68,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username; // Set the 'user' column value to the session variable
-                            $_SESSION["email"] = $email;                            
+                            $_SESSION["email"] = $email;  
+                            $_SESSION["role"] = "admin";                         
                             
                             // Redirect user to dashboard page
                             header("location: admin/pages/admin.php");
                         }
-                        elseif(password_verify($password, $hashed_password)){
+                        elseif(password_verify($password, $hashed_password))
+                        {
                             // Password is correct, start a new session
                             session_start();
                             
@@ -76,21 +83,78 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username; // Set the 'user' column value to the session variable
-                            $_SESSION["email"] = $email;                            
+                            $_SESSION["email"] = $email;
+                            $_SESSION["role"] = "user";                                   
                            
                             //Redirect user
                             header("location: home.php");
-                        } 
-                        else{
-                            // iF Password not valid, display an error message
-                            $password_err = "Invalid username/email or password.";
                         }
+                        else 
+                    {
+                        // If Username/email doesn't exist in users table, check staff table
+                        $sql_staff = "SELECT id, staff, email, password FROM staffs WHERE staff = ? OR email = ?";
+                        if($stmt_staff = mysqli_prepare($conn, $sql_staff))
+                        {
+                            // Bind variables to the prepared statement as parameters
+                            mysqli_stmt_bind_param($stmt_staff, "ss", $param_username_staff, $param_username_staff);
+                            
+                            // Set parameters
+                            $param_username_staff = $username;
+                            
+                            // Attempt to execute the prepared statement
+                            if(mysqli_stmt_execute($stmt_staff))
+                            {
+                                // Store result
+                                mysqli_stmt_store_result($stmt_staff);
+                                
+                                // Check if username/email exists in staff table, if yes then verify password
+                                if(mysqli_stmt_num_rows($stmt_staff) == 1)
+                                {                    
+                                    // Bind result variables
+                                    mysqli_stmt_bind_result($stmt_staff, $id_staff, $username_staff, $email_staff, $hashed_password_staff);
+                                    if(mysqli_stmt_fetch($stmt_staff)){
+                                        
+                                        if (password_verify($password, $hashed_password_staff)) 
+                                        {
+                                            echo "Staff authenticated successfully.";
+                                            // Password is correct, start a new session
+                                            session_start();
+                                            
+                                            // Store data in session variables
+                                            $_SESSION["loggedin"] = true;
+                                            $_SESSION["id"] = $id_staff;
+                                            $_SESSION["username"] = $username_staff;
+                                            $_SESSION["email"] = $email_staff;
+                                            $_SESSION["role"] = "staff";     
+                                            echo "Redirecting staff to home.php";   
+                                            // Redirect staff to admin panel
+                                            header("location: home.php");
+                                        } 
+                                        else 
+                                        {
+                                            // If Password not valid, display an error message
+                                            $password_err = "Invalid username/email or password.";
+                                        }
+                                    }
+                                } 
+                                else 
+                                {
+                                    // If Username/email doesn't exist in staff table, display an error message
+                                    $username_err = "Invalid username/email or password.";
+                                }
+                            } 
+                            else 
+                            {
+                                echo "Oops! Something went wrong. Please try again later.";
+                            }
+                        }
+                        mysqli_stmt_close($stmt_staff);
                     }
-                } else{
-                    // If Username/email doesn't exist, display an error message
-                    $username_err = "Invalid username/email or password.";
-                }
-            } else{
+                    }
+                } 
+            } 
+            else
+            {
                 echo "Oops! Something went wrong. Please try again later.";
             }
 
@@ -132,6 +196,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     </div>
                     <div class="my-4">
                         <button type="submit" class="bt bt-d b" id="login-btn">LOG IN</button>
+                        <?php if(isset($_SESSION["username"])) {echo $_SESSION["username"]; } $username_staff?>
                     </div>
                     <div class="mt-2">
                         <p id="h-rule"><span>NEW TO AGIZNA?</span></p>
