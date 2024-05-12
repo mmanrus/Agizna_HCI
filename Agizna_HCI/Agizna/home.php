@@ -1,21 +1,21 @@
 <?php
-include('dbconnection.php');
+    include('dbconnection.php');
 
-session_start();
+    session_start();
 
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: login.php");
-    exit;
-}
+    if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+        header("location: login.php");
+        exit;
+    }
 
-$username = $_SESSION["username"];
+    $username = $_SESSION["username"];
 
-include("header.php");
+    include("header.php");
 
-$query = "SELECT * FROM hotels";
-$query_image = "SELECT * FROM hotel_images";
-$result = mysqli_query($conn, $query);
-$result_image = mysqli_query($conn, $query_image);
+    $query = "SELECT * FROM hotels";
+    $query_image = "SELECT * FROM hotel_images";
+    $result = mysqli_query($conn, $query);
+    $result_image = mysqli_query($conn, $query_image);
 ?>
 
 <body>
@@ -101,9 +101,10 @@ $result_image = mysqli_query($conn, $query_image);
                     $price_per_night = $row['price_per_night'];
                     $currency = $row['currency'];
                     $image_path = $row_image['image_path'];
+                    $hotel_id = $row['id'];
             ?>
                     <div class="custom-col">
-                        <a href="book.php">
+                        <a href="book.php?id=<?php echo $hotel_id;?>">
                             <img src="<?php echo $image_path; ?>" alt="<?php echo $location; ?>">
                             <span class="spandex">Guest Favorite</span>
                             <div class="custom-txt">

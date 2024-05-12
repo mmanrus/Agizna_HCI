@@ -1,4 +1,5 @@
 <?php
+    include("dbconnection.php");
     session_start();
     
     // check if logged in 
@@ -11,6 +12,17 @@
     $username = $_SESSION["username"];
     include("nav.php");
 
+    $query = "SELECT * FROM hotels";
+    $query_image = "SELECT * FROM hotel_images";
+    $result = mysqli_query($conn, $query);
+    $result_img = mysqli_query($conn, $query_image);
+
+    $row = mysqli_fetch_assoc($result);
+    $hotelName = $row['hotel_name'];
+    $location = $row['location'];
+    $description = $row['description'];
+    $price_per_night = $row['price_per_night'];
+    $currency = $row['currency'];
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +49,7 @@
             <form action="#" method="post" class="d-flex flex-wrap flex-column">
                 <div>
                     <div class="input-group">
-                        <input type="text" class="w_100" required>
+                        <input type="text" class="w_100" required value="<?php echo $location;?>" disabled>
                         <label for="">Location</label>
                     </div>
                     <div class="d-flex justify-content-between">
@@ -137,11 +149,19 @@
                         <button class="agizna-btn fs-3">Book Now</button>
                     </div>
                 </div>
+            <div class="" style="position: relative;">
+                <p>Total Amount: <?php echo $currency . " " . $price_per_night; ?></p>
+                    <!-- Display the total amount to be paid -->
+            </div>
             </form>
-            
         </div>
         <div class="">
+               <!--- 
                
+               Pag butang og image dinhi nga ma sakto tanan ang width og height 
+               Sa Grey Nga color nga sa Right side
+               Dapat sakto ang width og height.
+               --->
 
         </div>
     </div>

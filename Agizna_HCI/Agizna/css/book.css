@@ -196,11 +196,15 @@ label {
 .input-group input:focus~label,
 .input-group input:valid~label,
 .input-group select:focus~label,
-.input-group select:valid~label {
+.input-group select:valid~label,
+.input-group input:disabled~label,
+.input-group select:disabled~label {
     top: 0;
     font-size: 12px;
     background: var(--bs-red);
 }
+
+
 input[type=date]:required:invalid::-webkit-datetime-edit {
     color: transparent;
 }
