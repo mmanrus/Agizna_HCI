@@ -16,18 +16,14 @@
     $query_image = "SELECT * FROM hotel_images";
     $result = mysqli_query($conn, $query);
     $result_image = mysqli_query($conn, $query_image);
+
+    include('nav.php');
 ?>
 
 <body>
     <!-- Your HTML content here -->
 
-    <?php 
-    // Display "Add hotels" link only for staff members
-    include("nav.php");
-    if ($_SESSION["role"] === "staff") {
-        echo "<a href='add-hotel.php'>Add hotels</a>";
-    }
-    ?>
+
 
     <div class="menu-btn" class="fas fa-bars"></div>
 
@@ -94,7 +90,8 @@
         <div class="custom-row">
             <?php
             if (mysqli_num_rows($result) > 0 && mysqli_num_rows($result_image) > 0) {
-                while (($row = mysqli_fetch_assoc($result)) && ($row_image = mysqli_fetch_assoc($result_image))) {
+                while (($row = mysqli_fetch_assoc($result)) && ($row_image = mysqli_fetch_assoc($result_image))) 
+                {
                     $hotelName = $row['hotel_name'];
                     $location = $row['location'];
                     $description = $row['description'];

@@ -1,0 +1,44 @@
+@import url(csvar.css);
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100svh;
+    margin: 0;
+    background-color: #f8f9fa;
+    font-size: var(--bs-body-font-size);
+    font-weight: var(--bs-body-font-weight);
+    line-height: var(--bs-body-line-height);
+    color: var(--bs-body-color);
+    text-align: var(--bs-body-text-align);
+}
+
+div
+{
+    position: absolute;
+    top:25svh;
+    left: 20svw;
+    width: 60svw;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #007bff;
+    color: #fff;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+

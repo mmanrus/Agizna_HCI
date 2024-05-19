@@ -1,3 +1,13 @@
+<?php
+   include("../../dbconnection.php");
+
+   $q_reserver = "SELECT rs.location, rs.price_paid, rs.currency, rs.status, u.user 
+               FROM reservation_summary rs
+               INNER JOIN users u ON rs.user_id = u.id";
+   
+   $result = mysqli_query($conn, $q_reserver);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -94,69 +104,40 @@
                     <table>
                         <thead>
                             <tr>
-                                <td>Place</td>
+                                <td>Location</td>
+                                <td>User</td>
                                 <td>Amount</td>
-                                <td>Payment</td>
                                 <td>Status</td>
                             </tr>
                         </thead>
 
                         <tbody>
+                            <?php
+                            if(mysqli_num_rows($result) > 0)
+                            {
+                                while($row = mysqli_fetch_assoc($result))
+                                {
+                                    $hotel_location = $row['location'];
+                                    $paid = $row['price_paid'];
+                                    $currency = $row['currency'];
+                                    $status = $row['status'];
+                                    $user = $row['user'];
+                            ?>
                             <tr>
-                                <td>Kayak, Mandaue Cebu City</td>
-                                <td>$250</td>
-                                <td>Paid</td>
-                                <td><span class="status delivered">Booked</span></td>
+                                <td><?php echo $hotel_location;?></td>
+                                <td><?php echo $user;?></td>
+                                <td><?php echo $paid." ".$currency;?></td>
+                                <td><span class="status delivered"><?php echo $status;?></span></td>
                             </tr>
-
-                            <tr>
-                                <td>Coron, Palawan, Philippines</td>
-                                <td>$110</td>
-                                <td>Due</td>
-                                <td><span class="status delivered">Booked</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>New World, Makati Hotel</td>
-                                <td>$200</td>
-                                <td>Paid</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Kayak Mandaue Cebu City</td>
-                                <td>$620</td>
-                                <td>Due</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>New World, Makati Hotel</td>
-                                <td>$200</td>
-                                <td>Paid</td>
-                                <td><span class="status delivered">Booked</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Coron Palawan Philippines</td>
-                                <td>$110</td>
-                                <td>Due</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Henann Crystal Sands Resort</td>
-                                <td>$250</td>
-                                <td>Paid</td>
-                                <td><span class="status delivered">Booked</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Fairways & Bluewater Boracay</td>
-                                <td>$620</td>
-                                <td>Due</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
+                            <?php
+                                }
+                            }
+                            else
+                            {
+                                echo "<tr><td>No results found</td></tr>";
+                            }
+                            ?>
+                          
                         </tbody>
                     </table>
                 </div>
@@ -170,7 +151,7 @@
                     <table>
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.png" alt=""></div>
+                                <div class="imgBx"><img src="assets/imgs/customer01.png" alt=""></div>
                             </td>
                             <td>
                                 <h4>David <br> <span>Italy</span></h4>

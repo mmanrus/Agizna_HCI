@@ -56,7 +56,7 @@
     --bs-primary-bg-subtle: #cfe2ff;
     --bs-secondary-bg-subtle: #e2e3e5;
     --bs-success-bg-subtle: #d1e7dd;
-
+    
     /* BTN CLASS */
     --bs-border-radius: 8px;
     --bs-btn-padding-x: 0.75rem;
@@ -107,7 +107,7 @@
     --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
     --bs-body-font-family: var(--bs-font-sans-serif);
-    --bs-body-font-size: 1rem;
+    --bs-body-font-size: 1.3rem;
     --bs-body-font-weight: 400;
     --bs-body-line-height: 1.5;
     --bs-body-color: #212529;
@@ -155,5 +155,8 @@
     --bs-form-valid-border-color: #198754;
     --bs-form-invalid-color: #dc3545;
     --bs-form-invalid-border-color: #dc3545;
+
+    /* SIZE */
+    --fs-normal: 62.5%;
 
 }

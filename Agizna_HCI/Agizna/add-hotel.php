@@ -132,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include("nav.php");
 ?>
 
-<form action="add-hotel.php" method="POST"  enctype="multipart/form-data" style="position: relative; top:20%;">
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST"  enctype="multipart/form-data" style="position: relative; top:20%;">
     <div class="input-group">
         <input type="text" class="w_100" name="hotel_name" >
         <label for="">Hotel Name</label>
