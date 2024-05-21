@@ -1,11 +1,46 @@
+@import url('csvar.css');
+
+form {
+    position: absolute;
+    top: 20%;
+    left: 10svw;
+    display: flex;
+    flex-direction: column;
+    width: 100svw;
+    flex: 0 0 calc(33.333% - 10px); /*Adjust the column width as needed */
+    max-width: calc(50.333% - 10px); /* Adjust the column width as needed */
+    background-color: var(--bs-code-color);
+    border-radius: 5px;
+    padding :10px 0;
+}
+
 
 label {
     display: inline-block;
 }
 
+.flex 
+{
+    display: flex;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+}
+
+.w_100 {
+    width: 100% !important;;
+}
+
+.w_50 {
+    width: 50% !important;
+}
+.mx-auto {
+    margin-left: auto!important; 
+    margin-right: auto!important; 
+}
 .input-group {
     position: relative;
-    margin: 20px 0;
+    margin: 20px 20px;
+
 }
 
 .input-group label{
@@ -30,15 +65,24 @@ label {
     outline: none;
     border-radius: 5px;
 }
-
+.input-group select {
+    margin-left: 40px;
+}
 .input-group input:focus~label,
 .input-group input:valid~label,
-.input-group select:focus~label,
-.input-group select:valid~label {
+ select:focus~label,
+ select:valid~label {
     top: 0;
     font-size: 12px;
     background: var(--bs-red);
 }
+
+.select 
+{
+    width: 15%;
+    margin: 20px 20px;
+}
+
 input[type=date]:required:invalid::-webkit-datetime-edit {
     color: transparent;
 }
@@ -48,7 +92,25 @@ input[type=date]:focus::-webkit-datetime-edit {
 .transparent {
     background-color: transparent!important;
 }
+textarea
+{
+    height: 200px;
+    padding: 10px;
+    font-size: 17.6px;
+}
+.label
+{
+    margin-top: 10px;
+}
 
 span {
     color : #fff;
+}
+
+button
+{
+    width: 50%;
+    cursor: pointer;
+    border-radius: 10px;
+    height: 40px;
 }

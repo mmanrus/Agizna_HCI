@@ -38,25 +38,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     if(empty($location))
     {
-        $hotelName_err = "Location is required.";
+        $location_err = "Location is required.";
     }
     if(empty($description))
     {
-        $hotelName_err = "Description is required.";
+        $description_err = "Description is required.";
     }
-    if (!is_numeric($price_per_night) || $price_per_night < 0) 
+    if (!is_numeric($price_per_night) || $price_per_night < 0 || empty($price_per_night)) 
     {
         $price_per_night_err = "Price per night must be greater than zero.";
     }
-    if (!is_numeric($taxes) || $taxes < 0) 
+    if (!is_numeric($taxes) || $taxes < 0 || empty($taxes)) 
     {
         $taxes_err = "Taxes must be a non-negative number.";
     }
-    if (!is_numeric($discount) || $discount < 0) 
+    if (!is_numeric($discount) || $discount < 0 || empty($discount)) 
     {
         $discount_err = "Discount must be a non-negative number.";
     }
-    if (!is_numeric($rooms) || $rooms < 0) 
+    if (!is_numeric($rooms) || $rooms < 0  || empty($rooms)) 
     {
         $rooms_err = "Number of rooms must be greater than zero.";
     }
@@ -132,54 +132,60 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include("nav.php");
 ?>
 
-<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST"  enctype="multipart/form-data" style="position: relative; top:20%;">
-    <div class="input-group">
-        <input type="text" class="w_100" name="hotel_name" >
-        <label for="">Hotel Name</label>
-        <span><?php echo isset($hotelName_err) ? $hotelName_err : ''; ?></span>
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST"  enctype="multipart/form-data">
+    <div class="flex">
+        <div class="input-group w_50">
+            <input type="text" class="w_100" name="hotel_name">
+            <label for="">Hotel Name</label>
+            <p><?php echo isset($hotelName_err) ? $hotelName_err : ''; ?></p>
+        </div>
+        <div class="input-group w_50">
+            <input type="text" class="w_100" name="location">
+            <label for="">Location</label>
+            <p><?php echo isset($location_err) ? $location_err : ''; ?></p>
+        </div>
+    </div>
+    <div class="flex">
+        <div class="input-group w_50">
+            <input type="number" class="w_100" name="rooms"  min="1" max="200">
+            <label for="">Rooms</label>
+            <p><?php echo isset($rooms_err) ? $rooms_err : ''; ?></p>
+        </div>
+        <div class="input-group w_50">
+            <input type="number" class="w_100" name="price_per_night"  min="0">
+            <label for="">Price per Night</label>
+            <p><?php echo isset($price_per_night_err) ? $price_per_night_err : ''; ?></p>
+        </div>
+    </div>
+    <select name="currency" class="select">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="PHP">PHP</option>
+                <!-- Add more currency options as needed -->
+    </select>
+    <div class="flex ">
+        <div class="input-group w_50">
+            <input type="number" class="w_100" name="taxes" min="0">
+            <label for="">Taxes</label>
+            <p><?php echo isset($taxes_err) ? $taxes_err : ''; ?></p>
+        </div>
+        <div class="input-group w_50">
+            <input type="number" class="w_100" name="discount" min="0">
+            <label for="">Discount</label>
+            <p><?php echo isset($discount_err) ? $discount_err : ''; ?></p>
+        </div>
     </div>
     <div class="input-group">
-        <input type="text" class="w_100" name="location" >
-        <label for="">Location</label>
-        <span><?php echo isset($location_err) ? $location_err : ''; ?></span>
-    </div>
-    <div class="input-group">
-        <input type="number" class="w_100" name="rooms"  min="1" max="200">
-        <label for="">Rooms</label>
-        <span><?php echo isset($rooms_err) ? $rooms_err : ''; ?></span>
-    </div>
-    <div class="input-group">
-        <input type="number" class="w_100" name="price_per_night"  min="0">
-        <label for="">Price per Night</label>
-        <select name="currency">
-            <option value="USD">USD</option>
-            <option value="EUR">EUR</option>
-            <option value="PHP">PHP</option>
-            <!-- Add more currency options as needed -->
-        </select>
-        <span><?php echo isset($price_per_night_err) ? $price_per_night_err : ''; ?></span>
-    </div>
-    <div class="input-group">
-        <input type="number" class="w_100" name="taxes" min="0">
-        <label for="">Taxes</label>
-        <span><?php echo isset($taxes_err) ? $taxes_err : ''; ?></span>
-    </div>
-    <div class="input-group">
-        <input type="number" class="w_100" name="discount" min="0">
-        <label for="">Discount</label>
-        <span><?php echo isset($discount_err) ? $discount_err : ''; ?></span>
-    </div>
-    <div class="input-group">
-        <input type="file" class="w_100" name="images[]" multiple>
+        <input type="file" class="w_50" name="images[]" multiple>
         <label for="">Images</label>
-        <span><?php echo isset($image_err) ? $image_err : ''; ?></span>
+        <p><?php echo isset($image_err) ? $image_err : ''; ?></p>
     </div>
-    <div>
-        <textarea name="description"></textarea><br><br>
-        <label for="">Description</label>
-        <span><?php echo isset($description_err) ? $description_err : ''; ?></span>
+    <div class="input-group">
+        <textarea name="description" class="w_100"></textarea><br><br>
+        <label for="" class="label">Description</label>
+        <p><?php echo isset($description_err) ? $description_err : ''; ?></p>
     </div>
-    <input type="submit" value="Add Hotel">
+    <button type="submit" class="mx-auto">Add Hotel</button>
 </form>
 
 </body>

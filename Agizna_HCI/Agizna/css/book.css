@@ -4,8 +4,7 @@ body
 {
     font-family:  'Open Sans'Arial, Helvetica, sans-serif;
     margin: 0;
-    height: 100vh;
-    overflow-x: hidden;
+
     font-size: var(--bs-body-font-size);
     font-weight: var(--bs-body-font-weight);
     line-height: var(--bs-body-line-height);
@@ -13,11 +12,16 @@ body
     text-align: var(--bs-body-text-align);
     /* background-color: var(--bs-body-bg); */
 }
-
-
+    
 html, body {
     height: 100%;
-}
+    margin: 0;
+    padding: 0;
+    background-color: var(--bs-dark);
+}/* Ensures the background color extends to the full page */
+
+
+
 * {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -38,22 +42,21 @@ div {
     unicode-bidi: isolate;
 }
 /*   -------CONTAINER------   */
-.position-relative {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    height: 100vh;
-    width: 100%;
-    background-color: var(--bs-dark);
-}
+
 /*   -------FORM_CONTAINER------   */
 .form-container {
-    height: 100vh;
+    min-height: 100vh; /* Ensures the form container takes at least the full viewport height */
     width: 40%;
-    position: relative;
-    background-color: var(--bs-red);
-    padding: 1.5rem;
+    overflow-y: visible;
+    background-color: var(--bs-red); /* Optional: This is now redundant because the body background color is set */
+    padding: 100px 10px 10px 10px;
 }
+
+.mr {
+    margin-right: 5px;
+}
+
+
 .flex-column {
     flex-direction: column !important;
 }
@@ -118,10 +121,16 @@ div {
 }
 
 
-.position-relative > .form-container form > div:not(:nth-child(2)){
+.form-container form > div:not(:nth-child(2)):not(:last-child){
     background-color: var(--bs-white-tp);
     border-radius: 25px;
     padding: 10px
+}
+.form-container form > div:nth-child(2), .form-container form > div:last-child
+{
+    margin: 15px 0 15px;
+    font-weight: 500;
+    font-size: 1.1rem;
 }
 
 .form-floating>.form-control, .form-floating>.form-control-plaintext, .form-floating>.form-select {

@@ -2,7 +2,6 @@
 
 include("dbconnection.php");
 
-
 function checkSum($cardNum)
 {
     $result = 0;

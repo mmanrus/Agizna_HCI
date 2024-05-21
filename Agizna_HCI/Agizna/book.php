@@ -11,24 +11,38 @@
     
     // Retrieve username from login
     $username = $_SESSION["username"];
-    include("nav.php");
 
-    $query = "SELECT * FROM hotels";
-    $query_image = "SELECT * FROM hotel_images";
+
+    $hotel_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+
+if ($hotel_id > 0) {
+    // Fetch hotel details using the hotel ID
+    $query = "SELECT * FROM hotels WHERE id = $hotel_id";
     $result = mysqli_query($conn, $query);
+
+    // Fetch hotel image using the hotel ID
+    $query_image = "SELECT * FROM hotel_images WHERE hotel_id = $hotel_id";
     $result_img = mysqli_query($conn, $query_image);
 
-    $row = mysqli_fetch_assoc($result);
-    $hotelName = $row['hotel_name'];
-    $location = $row['location'];
-    $description = $row['description'];
-    $price_per_night = $row['price_per_night'];
-    $currency = $row['currency'];
-    $rooms = $row['rooms'];
-    $tax = $row['taxes']; // 10% tax
-    $discount = $row['discount']; // 5% discount
+    if ($result && $result_img && mysqli_num_rows($result) > 0 && mysqli_num_rows($result_img) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $row_image = mysqli_fetch_assoc($result_img);
 
-
+        $hotelName = $row['hotel_name'];
+        $location = $row['location'];
+        $description = $row['description'];
+        $price_per_night = $row['price_per_night'];
+        $currency = $row['currency'];
+        $rooms = $row['rooms'];
+        $tax = $row['taxes']; // 10% tax
+        $discount = $row['discount']; // 5% discount
+        $image_path = $row_image['image_path'];
+    } else {
+        echo "No hotel found.";
+    }
+} else {
+    echo "Invalid hotel ID.";
+}
     include("process_booking.php");
 // <?php echo htmlspecialchars($_SERVER["PHP_SELF"]);
 ?>
@@ -47,10 +61,13 @@
     <link rel="stylesheet" href="css/book.css?v=<?php echo time(); ?>">
 </head>
 <body>
-    <div class="position-relative">
+    <?php     
+        include("nav.php");
+    ?>
+    <div class="">
         <div class="form-container">
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class="d-flex flex-wrap flex-column">
-                <div>
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class="d-flex flex-column">
+                <div class="bg">
                     <div class="input-group">
                         <input type="text" class="w_100" required value="<?php echo $location; ?>" name="location" readonly>
                         <label for="">Location</label>
@@ -99,7 +116,6 @@
                     <div class="input-group mb-3 w_100">
                         <input type="text" class="w_100" id="cardNumber" name="cardNumber" required>
                         <label for="" id="label">Card Number</label>
-                        <span><?php echo 'hello';?></span>
                     </div>
                     <div class="d-flex justify-content-between">
                         <div class="input-group mb-3 w_50">
@@ -117,8 +133,6 @@
                 </div>
                 <div class="" style="position: relative;">
                     <p style="font-size: 20px;"><?php echo $currency . " " . $price_per_night; ?></p>
-                    <p><?php echo $user ?></p>
-                    <p><?php echo $user_id ?></p>
                     <p id="price_to_pay"></p>
                 </div>
             </form>
